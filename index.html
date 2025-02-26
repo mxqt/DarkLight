@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flickering Lights</title>
+    <link rel="stylesheet" href="https://use.typekit.net/efe5rwd.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            font-family: "neue-haas-unica", sans-serif;
+            font-weight: 500;
+            font-style: normal;
+        }
+        .image-container {
+            position: absolute;
+            width: 100%;
+            height: auto;
+            margin-left: 20px;
+        }
+        .image-container img {
+            position: absolute;
+            width: 98vw;
+            height: auto;
+            opacity: 0;
+        }
+        .social-links {
+            position: absolute;
+            bottom: 25px;
+            right: 25px;
+            color: white;
+            font-size: 25px;
+        }
+        .social-links a {
+            color: white;
+            text-decoration: none;
+            margin-right: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="image-container">
+        <img src="image1.png" class="img" alt="Image 1">
+        <img src="image2.png" class="img" alt="Image 2">
+        <img src="image3.png" class="img" alt="Image 3">
+        <img src="image4.png" class="img" alt="Image 4">
+    </div>
+    <div class="social-links">
+        <a href="https://instagram.com" target="_blank">Instagram</a>
+        <a href="https://facebook.com" target="_blank">Facebook</a>
+    </div>
+
+    <script>
+        function slowBreathFlicker(element) {
+            let duration = Math.random() * 8000 + 7000; // Random duration between 7s and 15s
+            let delay = Math.random() * 5000; // Random delay up to 5s
+            let opacityValues = [0, 0.3, 0.6, 1, 0.7, 0.4, 0]; // Smooth breathing-like flickering
+            let keyframes = opacityValues.map((opacity, index) => {
+                return { opacity, offset: index / (opacityValues.length - 1) };
+            });
+            
+            element.animate(keyframes, {
+                duration: duration,
+                iterations: Infinity,
+                delay: delay,
+                easing: "ease-in-out"
+            });
+        }
+
+        document.querySelectorAll('.img').forEach(img => {
+            slowBreathFlicker(img);
+        });
+    </script>
+</body>
+</html>

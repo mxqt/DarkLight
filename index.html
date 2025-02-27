@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,44 +12,84 @@
             padding: 0;
             box-sizing: border-box;
         }
+
         body {
             background-color: black;
             display: flex;
             justify-content: center;
             align-items: center;
             overflow: hidden;
-            font-family: "neue-haas-unica", sans-serif;
+            font-family: "neue-haas-grotesk-display", sans-serif;
             font-weight: 500;
             font-style: normal;
+            letter-spacing: 1.5px;
         }
+
+        h3 {
+            position: absolute;
+            color: white;
+            font-size: 20px;
+            margin: 0;
+            opacity: 0;
+            /* Start fully transparent */
+            animation: fadeInH3 6s ease-in forwards;
+            /* Smooth fade-in over 6 seconds */
+        }
+
+        @keyframes fadeInH3 {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
         .image-container {
             position: absolute;
             width: 100%;
             height: auto;
             margin-left: 20px;
         }
+
         .image-container img {
             position: absolute;
             width: 98vw;
             height: auto;
             opacity: 0;
         }
+
         .social-links {
-            position: absolute;
-            bottom: 25px;
-            right: 25px;
-            color: white;
-            font-size: 25px;
+            bottom: 10px;
+            right: 0px;
         }
+
         .social-links a {
             color: white;
             text-decoration: none;
-            margin-right: 15px;
+            margin-right: 10px;
+            margin-left: 10px;
         }
+
+        .coming-soon {
+            bottom: 10px;
+            left: 0px;
+            margin-left: 20px;
+        }
+
+        @media (max-width: 768px) { /* Adjust for mobile screens */
+    h3 {
+        font-size: 11pt; /* Reduce text size on mobile */
+    }
+}
+        
+
+
+
+
     </style>
 </head>
-
-
 
 <body>
     <div class="image-container">
@@ -57,10 +98,14 @@
         <img src="image3.png" class="img" alt="Image 3">
         <img src="image4.png" class="img" alt="Image 4">
     </div>
-    <!-- <div class="social-links">
+    <h3 class="social-links">
         <a href="https://instagram.com" target="_blank">Instagram</a>
-        <a href="https://facebook.com" target="_blank">Facebook</a> -->
-    </div>
+        <a href="https://facebook.com" target="_blank">Facebook</a>
+    </h3>
+
+    <h3 class="coming-soon">
+   Coming Soon 
+    </h3>
 
     <script>
         function slowBreathFlicker(element) {
@@ -70,7 +115,7 @@
             let keyframes = opacityValues.map((opacity, index) => {
                 return { opacity, offset: index / (opacityValues.length - 1) };
             });
-            
+
             element.animate(keyframes, {
                 duration: duration,
                 iterations: Infinity,
@@ -84,4 +129,5 @@
         });
     </script>
 </body>
+
 </html>

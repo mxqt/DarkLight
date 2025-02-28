@@ -20,19 +20,17 @@
             align-items: center;
             overflow: hidden;
             font-family: "neue-haas-grotesk-display", sans-serif;
-            font-weight: 500;
-            font-style: normal;
-            letter-spacing: 1.5px;
+            font-weight: 800;
+            letter-spacing: 1px;
         }
 
         h3 {
             position: absolute;
-            color: white;
-            font-size: 20px;
+            color: grey;
+            font-size: 16px;
             margin: 0;
             opacity: 0;
-            /* Start fully transparent */
-            animation: fadeInH3 6s ease-in forwards;
+            animation: fadeInH3 3s ease-in forwards;
             /* Smooth fade-in over 6 seconds */
         }
 
@@ -66,7 +64,7 @@
         }
 
         .social-links a {
-            color: white;
+            color: grey;
             text-decoration: none;
             margin-right: 10px;
             margin-left: 10px;
@@ -74,8 +72,7 @@
 
         .coming-soon {
             bottom: 10px;
-            left: 0px;
-            margin-left: 20px;
+            margin-left: 10px;
         }
 
         @media (max-width: 768px) { /* Adjust for mobile screens */
@@ -83,12 +80,13 @@
         font-size: 8pt; /* Reduce text size on mobile */
         letter-spacing: normal;
     }
+
+    .coming-soon {
+            bottom: 10px;
+            margin-left: 20px;
+            left:0;
+        }
 }
-        
-
-
-
-
     </style>
 </head>
 
@@ -110,8 +108,8 @@
 
     <script>
         function slowBreathFlicker(element) {
-            let duration = Math.random() * 6500 + 5500; // Random duration between 7s and 15s
-            let delay = Math.random() * 5000; // Random delay up to 5s
+            let duration = Math.random() * 5000 + 4000; // Random duration between 7s and 15s
+            let delay = Math.random() * 1000; // Random delay up to 5s
             let opacityValues = [0, 0.3, 0.6, 1, 0.7, 0.4, 0]; // Smooth breathing-like flickering
             let keyframes = opacityValues.map((opacity, index) => {
                 return { opacity, offset: index / (opacityValues.length - 1) };

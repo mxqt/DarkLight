@@ -5,8 +5,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="favicon.png">
-    <title>DarkLight</title>
+    <title>DarkLight Immersive Light & Sound Exhibition </title>
+    <meta name="description" content="Experience DARKLIGHT, New Zealand’s first immersive light exhibition, at Brad’s Warehouse, Auckland. From May 2–4, 2025, explore interactive audiovisual installations that reveal the power of light and darkness.">
+    <meta name="keywords" content="immersive exhibition, light and sound, interactive art, DARKLIGHT NZ, audiovisual installation, Auckland art events, light installation, contemporary art, digital experience, sensory art">
+    <meta name="author" content="Angus Muir Design">
+    
+    <!-- Open Graph (For Social Media Previews) -->
+    <meta property="og:title" content="DARKLIGHT – Immersive Light & Sound Exhibition | Auckland 2025">
+    <meta property="og:description" content="Step into DARKLIGHT, a unique audiovisual experience exploring light and darkness at Brad’s Warehouse, Auckland, from May 2–4, 2025.">
+    <meta property="og:url" content="https://darklight.co">
+    <meta property="og:image" content="https://d2w9rnfcy7mm78.cloudfront.net/35146337/original_241a259f305e0de1524f8ec4b4c954b9.png?1741684136?bc=0">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card (For Twitter Previews) -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="DARKLIGHT – Immersive Light & Sound Exhibition | Auckland 2025">
+    <meta name="twitter:description" content="Step into DARKLIGHT, a unique audiovisual experience exploring light and darkness at Brad’s Warehouse, Auckland, from May 2–4, 2025.">
+
     <link rel="stylesheet" href="https://use.typekit.net/efe5rwd.css">
+
     <style>
         * {
             margin: 0;
@@ -15,29 +32,23 @@
         }
 
         body {
-            background-color: black;
+            background: url('images/background-image.jpg') no-repeat center center/cover;
+            height: 100vh;
+            text-align: center;
+            color: #D3D3D3;
+            position: relative;
+            font-family: "neue-haas-grotesk-display", sans-serif;
+            font-style: normal;
+            font-weight: 400;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            overflow: hidden;
-            font-family: "neue-haas-grotesk-display", sans-serif;
-            font-weight: 300;
-            font-style: normal;
-            letter-spacing: 1px;
+            position: relative;
+            animation: fadeIn 1s ease-in forwards;
         }
 
-        h3 {
-            position: absolute;
-            color: grey;
-            font-size: 16px;
-            font-weight: 300;
-            margin: 0;
-            opacity: 0;
-            animation: fadeInH3 3s ease-in forwards;
-            /* Smooth fade-in over 6 seconds */
-        }
-
-        @keyframes fadeInH3 {
+        @keyframes fadeIn {
             from {
                 opacity: 0;
             }
@@ -47,89 +58,216 @@
             }
         }
 
-        .image-container {
+        .logo {
+            width: 100vw;
+            top: 25px;
+            padding: 0 15px 0 15px;
+            text-align: center;
+            position: fixed;
+        }
+
+
+        .content {
+            display: flex;
+            width: 850px;
+            height: 165px;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            flex-shrink: 0;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 400;
+            letter-spacing: .15rem;
+            line-height: 125%;
+        }
+
+        h2 {
+            font-size: .8rem;
+            letter-spacing: .08rem;
+            font-weight: 400;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
             position: absolute;
-            width: 100%;
-            height: auto;
-            margin-left: 20px;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
         }
 
-        .image-container img {
+        .social-icons a {
+            height: 35px;
+            width: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+            /* Smooth transition */
+        }
+
+        .social-icons a:hover {
+            transform: scale(1.1);
+            /* Increase size by about 10px */
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .social-icons img {
+            width: 15px;
+            height: 15px;
+        }
+
+
+        button {
+            border-radius: 30px;
+            background: rgba(217, 217, 217, 0.20);
+            color: #D3D3D3;
+            font-family: "neue-haas-grotesk-display", sans-serif;
+            font-style: normal;
+            font-weight: 400;
+            font-size: .5rem;
+            border: none;
+            display: flex;
+            height: 35px;
+            padding: 10px 18px;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            transition: transform 0.3s ease;
+            /* Smooth transition */
+        }
+
+        .ticket-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* transform: translateX(-50%); */
+            /* margin: 20px 0; */
+            max-width: fit-content;
+        }
+
+        .floating-buttons {
             position: absolute;
-            width: 98vw;
-            height: auto;
-            opacity: 0;
+            right: 15px;
+            bottom: 15px;
+            display: flex;
+            gap: 10px;
         }
 
-        .social-links {
-            bottom: 10px;
-            right: 0px;
+        /* .ticket-button:hover {
+            /* transform: translateX(-50%) scale(1.1); */
+            /* Ensures it stays centered */
+        
+
+
+        button:hover {
+            transform: scale(1.1);
+            background: rgba(255, 255, 255, 0.3);
         }
 
-        .social-links a {
-            color: grey;
-            text-decoration: none;
-            margin-right: 10px;
-            margin-left: 10px;
-        }
 
-        .coming-soon {
-            bottom: 10px;
-            margin-left: 10px;
-        }
 
-        @media (max-width: 768px) { /* Adjust for mobile screens */
-    h3 {
-        font-size: 8pt; /* Reduce text size on mobile */
-        letter-spacing: .5px;
-    }
+        @media (max-width: 768px) {
 
-    .coming-soon {
-            bottom: 10px;
-            margin-left: 20px;
-            left:0;
+            .logo{
+                top: 10px;
+                padding: 0 10px 0 10px;
+            }
+
+            .content {
+                display: flex;
+                width: 100%;
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+
+            h1 {
+                font-size: 1.1rem;
+            }
+
+            h2 {
+                font-size: 0.8rem;
+            }
+
+            .social-icons{
+                position: fixed;
+bottom: 15px;
+left: 15px;
+transform: none;
+            }
+
+            .floating-buttons {
+                position: fixed;
+                bottom: 15px;
+                right: 15px;
+                gap: 10px;
+                transform: none;
+            }
+
+
+            .ticket-button:hover {
+                transform: none;
+                background: rgba(255, 255, 255, 0.3);
+            }
+
+            button:hover {
+                transform: none;
+                background: rgba(255, 255, 255, 0.3);
+            }
+
         }
-}
     </style>
 </head>
 
 <body>
-    <div class="image-container">
-        <img src="image1.png" class="img" alt="Image 1">
-        <img src="image2.png" class="img" alt="Image 2">
-        <img src="image3.png" class="img" alt="Image 3">
-        <img src="image4.png" class="img" alt="Image 4">
+    <div class="logo">
+        <img src="images/logo.svg" alt="DARKLIGHT immersive light and sound exhibition in Auckland" width="100%">
     </div>
-    <h3 class="social-links">
-        <a href="https://www.instagram.com/darklight_experience/" target="_blank">Instagram</a>
-        <a href="https://www.facebook.com/experiencedarklight/" target="_blank">Facebook</a>
-    </h3>
+    <div class="content">
+        <h2>A Descent Into Colour</h2>
+        <h1>A first-of-its-kind light & sound experience<br>
+            2-4th May 2025<br>
+            9/11 Durham Lane, Auckland
+        </h1>
+        <button class="ticket-button">
+            <h2>
+                <a href="https://www.iticket.co.nz/events/2025/may/darklight"
+                    style="text-decoration: none; color: inherit;">Tickets</a>
+            </h2>
+        </button>
+        
+    </div>
 
-    <h3 class="coming-soon">
-   Coming Soon 
-    </h3>
 
-    <script>
-        function slowBreathFlicker(element) {
-            let duration = Math.random() * 5000 + 4000; // Random duration between 7s and 15s
-            let delay = Math.random() * 1000; // Random delay up to 5s
-            let opacityValues = [0, 0.3, 0.6, 1, 0.7, 0.4, 0]; // Smooth breathing-like flickering
-            let keyframes = opacityValues.map((opacity, index) => {
-                return { opacity, offset: index / (opacityValues.length - 1) };
-            });
+    <div class="social-icons">
+        <a href="https://www.instagram.com/darklight_experience/"><img src="images/Instagram.svg"
+                alt="Instagram"></a>
+        <a href="https://www.facebook.com/experiencedarklight/"><img src="images/Facebook.svg" alt="Facebook"></a>
+    </div>
 
-            element.animate(keyframes, {
-                duration: duration,
-                iterations: Infinity,
-                delay: delay,
-                easing: "ease-in-out"
-            });
-        }
-
-        document.querySelectorAll('.img').forEach(img => {
-            slowBreathFlicker(img);
-        });
-    </script>
+    <div class="floating-buttons">
+        <button>
+            <h2>
+                <a href="about-darklight.html" style="text-decoration: none; color: inherit;">About</a>
+            </h2>
+        </button>
+        <button>
+            <h2>
+                <a href="faq-darklight.html" style="text-decoration: none; color: inherit;">FAQs</a>
+            </h2>
+        </button>
+        <!-- <button> -->
+        <!-- <a href="https://www.instagram.com/darklight_experience/"><img src="images/Instagram.svg"
+            alt="Instagram"></a></button>
+            <button>  <a href="https://www.facebook.com/experiencedarklight/"><img src="images/Facebook.svg" alt="Facebook"></a></button>
+   -->
+    </div>
 </body>
 
 </html>

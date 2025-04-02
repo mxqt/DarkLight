@@ -155,15 +155,19 @@
             transition: transform 0.3s ease;
             /* Smooth transition */
         }
-
         .ticket-button {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            /* transform: translateX(-50%); */
-            /* margin: 20px 0; */
-            max-width: fit-content;
-        }
+    display: inline-flex; /* Keeps them in a row */
+    align-items: center;
+    justify-content: center;
+    /* margin: 5px; Adds spacing between them */
+    max-width: fit-content;
+    padding: 10px 20px; /* Adjust as needed */
+}
+
+.ticket-container {
+    display: flex; /* Ensures they stay in a row */
+    gap: 10px; /* Adds spacing between buttons */
+}
 
         .floating-buttons {
             position: absolute;
@@ -248,18 +252,20 @@ transform: none;
             2-4th May 2025<br>
             9/11 Durham Lane, Auckland
         </h1>
-        <button class="ticket-button">
-            <h2>
-                <a href="https://www.iticket.co.nz/events/2025/may/darklight" target="_blank"
-                    style="text-decoration: none; color: inherit;">Exhibition Tickets</a>
-            </h2>
-        </button>
-        <button class="ticket-button">
-            <h2>
-                <a href="https://www.undertheradar.co.nz/gig/95583/Resonate-Presented-By-Music-First-And-Darklight.utr" target="_blank"
-                    style="text-decoration: none; color: inherit;">Resonate Tickets</a>
-            </h2>
-        </button>
+        <div class="ticket-container">
+            <button class="ticket-button">
+                <h2>
+                    <a href="https://www.iticket.co.nz/events/2025/may/darklight" target="_blank"
+                        style="text-decoration: none; color: inherit;">Exhibition Tickets</a>
+                </h2>
+            </button>
+            <button class="ticket-button">
+                <h2>
+                    <a href="https://www.undertheradar.co.nz/gig/95583/Resonate-Presented-By-Music-First-And-Darklight.utr" target="_blank"
+                        style="text-decoration: none; color: inherit;">Resonate Tickets</a>
+                </h2>
+            </button>
+        </div>
         
     </div>
 

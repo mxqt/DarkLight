@@ -186,10 +186,37 @@
             display: flex;
             gap: 10px;
         }
+        
+        #partners-section {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+    z-index: 1000;
+    text-align: center;
+}
 
-        /* .ticket-button:hover {
-            /* transform: translateX(-50%) scale(1.1); */
-        /* Ensures it stays centered */
+#partners-section.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.partners-logos {
+    display: flex;
+    padding-top: 20px;
+    gap: 25px;
+    align-items: center; /* Ensures vertical centering */
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.partners-logos img {
+    max-height: 40px;
+    transition: transform 0.3s ease;
+}
 
 
 
@@ -285,6 +312,17 @@
 
     </div>
 
+    <div id="partners-section">
+        <h2>Special thanks</h2>
+        <div class="partners-logos">
+            <a href="https://www.drinkalmighty.com/" target="_blank"><img src="images/partners/almighty.png" alt="Partner 1"></a>
+            <a href="https://www.asahibeverages.co.nz" target="_blank"><img src="images/partners/asd.png" alt="Partner 2"></a>
+            <a href="https://brads-warehouse.com" target="_blank"><img src="images/partners/brads.svg" alt="Partner 3"></a>
+            <a href="https://www.culpritdiningroom.co.nz" target="_blank"><img src="images/partners/culprit.svg" alt="Partner 4"></a>
+            <a href="https://scapegracedistillery.com" target="_blank"><img src="images/partners/sg.svg" alt="Partner 5"></a>
+        </div>
+    </div>
+
 
     <div class="social-icons">
         <a href="https://www.instagram.com/darklight_experience/" target="_blank"><img src="images/Instagram.svg"
@@ -318,12 +356,44 @@
                 <a href="about-resonate.html" style="text-decoration: none; color: inherit;">Resonate</a>
             </h2>
         </button>
+
+        <button id="partners-btn">
+            <h2>Partners</h2>
+        </button>
         <!-- <button> -->
         <!-- <a href="https://www.instagram.com/darklight_experience/"><img src="images/Instagram.svg"
             alt="Instagram"></a></button>
             <button>  <a href="https://www.facebook.com/experiencedarklight/"><img src="images/Facebook.svg" alt="Facebook"></a></button>
    -->
     </div>
+
+
+    <script>
+        const partnersBtn = document.getElementById('partners-btn');
+        const partnersSection = document.getElementById('partners-section');
+        const content = document.querySelector('.content');
+    
+        let showingPartners = false;
+    
+        partnersBtn.addEventListener('click', () => {
+            showingPartners = !showingPartners;
+            if (showingPartners) {
+                partnersSection.classList.add('active');
+                content.style.opacity = 0;
+            } else {
+                partnersSection.classList.remove('active');
+                content.style.opacity = 1;
+            }
+        });
+    
+        document.addEventListener('click', (e) => {
+            if (showingPartners && !partnersSection.contains(e.target) && !partnersBtn.contains(e.target)) {
+                partnersSection.classList.remove('active');
+                content.style.opacity = 1;
+                showingPartners = false;
+            }
+        });
+    </script>
 </body>
 
 </html>
